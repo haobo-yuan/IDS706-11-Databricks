@@ -9,6 +9,40 @@ This is IDS-706 week 11 project which involves Creating a data pipeline using Da
 
 ## Project Details
 
+[Public Databricks Notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/3782939469662119/3034395984167565/143182443765126/latest.html)
+
+Also was exported and available in this repository in [.ipynb](IDS706-11-Databricks.ipynb) and in [.py](IDS706-11-Databricks.py) formats.
+
+There are two screenshots of the notebook run successfully on Databricks.
+
+Load CSV to DBFS:
+![Load CSV to DBFS](pictures/SucceedLoadCSV.png)
+
+Analyze and Plot:
+![Analyze and Plot](pictures/SucceedAnalysisandPlot.png)
+
+### Data Pipeline & Data source and data sink
+I successfully created a data pipeline on Databricks that meets the assignment requirements. Here’s a detailed analysis:
+
+#### 1. Data Source
+In my project, I used the `NASDAQ_100_Data_From_2010.csv` file from the Databricks File System (DBFS) as the data source. I specified appropriate read options (like `inferSchema` and `header`) to ensure correct data import, storing the data in a Spark DataFrame. This satisfies the requirement to "Include at least one data source."
+
+#### 2. Data Processing and Aggregation
+I implemented the `preprocess_data` function to filter and preprocess the data, focusing on AAPL stock and adding a `Year` column. Then, I used `groupBy` and `agg` to calculate annual statistics (mean, median, and standard deviation) for AAPL's closing price. This data processing demonstrates a functional pipeline, addressing the "Pipeline functionality" criterion.
+
+#### 3. Data Sink
+I configured two data sinks to save the processed annual statistics:
+- **Table Storage**: I saved the data as a table using `spark.write.format("parquet").saveAsTable("AAPL_Yearly_Stats")`, which ensures persistence across cluster restarts.
+- **CSV File**: I also saved the data as a CSV file to the path `/FileStore/tables/AAPL_Yearly_Stats.csv` on DBFS, making it easy to download and share in CSV format.
+
+#### Summary
+My project have implemented:
+- **Data Source**: I used a CSV file from DBFS as the data source.
+- **Data Sink**: I saved the results as both a table and a CSV file, ensuring data persistence and accessibility.
+- **Pipeline Functionality**: Using Spark, I implemented data preprocessing, aggregation, and generated a visualization of AAPL’s annual statistics.
+
+
+
 ### Spark SQL Query and Data Transformation
 
 This project includes both data transformations and a Spark SQL query:
@@ -16,18 +50,6 @@ This project includes both data transformations and a Spark SQL query:
 - **Data Transformations**: The code utilizes `groupBy` and `agg` functions to calculate the yearly mean, median, and standard deviation of AAPL stock closing prices. These operations are essential for aggregating the data by year and computing relevant statistics.
 
 - **Spark SQL Query**: The `expr` function is used with `percentile_approx` to approximate the median of the closing prices. This function call demonstrates the use of a Spark SQL expression within the PySpark framework, allowing efficient computation of the median value for large datasets.
-
-### Instructions to run the project locally
-```bash
-# Clone the repository
-git clone https://github.com/haobo-yuan/IDS706-11-Databricks.git
-# Change the directory
-cd IDS706-11-Databricks
-# Install the dependencies
-make install
-# Run the project
-make run
-```
 
 ### Reference
 [devcontainer & Dockerfile from Jeremy](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week10/tree/main/.devcontainer)
