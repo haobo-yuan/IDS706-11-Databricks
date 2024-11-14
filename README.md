@@ -1,19 +1,13 @@
-![Install Dependencies](https://github.com/haobo-yuan/IDS706-10-PySpark/actions/workflows/install.yml/badge.svg)
-![Format Code](https://github.com/haobo-yuan/IDS706-10-PySpark/actions/workflows/format.yml/badge.svg)
-![Lint Code](https://github.com/haobo-yuan/IDS706-10-PySpark/actions/workflows/lint.yml/badge.svg)
-![Run Tests](https://github.com/haobo-yuan/IDS706-10-PySpark/actions/workflows/test.yml/badge.svg)
+![Install Dependencies](https://github.com/haobo-yuan/IDS706-11-Databricks/actions/workflows/install.yml/badge.svg)
+![Format Code](https://github.com/haobo-yuan/IDS706-11-Databricks/actions/workflows/format.yml/badge.svg)
+![Lint Code](https://github.com/haobo-yuan/IDS706-11-Databricks/actions/workflows/lint.yml/badge.svg)
+![Run Tests](https://github.com/haobo-yuan/IDS706-11-Databricks/actions/workflows/test.yml/badge.svg)
 
-# IDS-706 Data Engineering: Project 10
+# IDS-706 Data Engineering: Project 11
 
-This is IDS-706 week 10 project which involves using PySpark to perform data processing on a large dataset and includes at least one Spark SQL query and one data transformatio
-
-This project could be implemented locally by installing Spark and PySpark, or by using the GitHub Codespaces with a Linux image. Using DataBricks is also an option, but considering the budget and lots of differences between working on it and on local/Codespaces, DataBricks is not recommended.
+This is IDS-706 week 11 project which involves Creating a data pipeline using Databricks, and Include at least one data source and one data sink.
 
 ## Project Details
-
-### Screenshots of successful run
-![Screenshot](pictures/SucceedRunSparkLocally.png)
-
 
 ### Spark SQL Query and Data Transformation
 
@@ -26,26 +20,17 @@ This project includes both data transformations and a Spark SQL query:
 ### Instructions to run the project locally
 ```bash
 # Clone the repository
-git clone https://github.com/haobo-yuan/IDS706-10-PySpark.git
+git clone https://github.com/haobo-yuan/IDS706-11-Databricks.git
 # Change the directory
-cd IDS706-10-PySpark
+cd IDS706-11-Databricks
 # Install the dependencies
 make install
-# Install Java 11, which is required by Spark
-sudo apt update
-sudo apt install openjdk-11-jdk
-# Add JAVA_HOME to the environment variables
-echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64" >> ~/.bashrc
-echo "export PATH=$JAVA_HOME/bin:$PATH" >> ~/.bashrc
-source ~/.bashrc
 # Run the project
 make run
 ```
 
 ### Reference
 [devcontainer & Dockerfile from Jeremy](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week10/tree/main/.devcontainer)
-
-But I later I choose to run locally. So those files are not really used when running on my end.
 
 ---
 
